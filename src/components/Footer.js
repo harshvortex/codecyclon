@@ -63,8 +63,8 @@ export default function Footer() {
         <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.82rem' }}>© {new Date().getFullYear()} Codecyclon. All rights reserved.</p>
           <div style={{ display: 'flex', gap: '1.5rem' }}>
-            <a href="#" style={{ color: 'var(--text-muted)', fontSize: '0.82rem' }}>Privacy</a>
-            <a href="#" style={{ color: 'var(--text-muted)', fontSize: '0.82rem' }}>Terms</a>
+            <Link href="/privacy" style={{ color: 'var(--text-muted)', fontSize: '0.82rem' }}>Privacy</Link>
+            <Link href="/terms" style={{ color: 'var(--text-muted)', fontSize: '0.82rem' }}>Terms</Link>
           </div>
         </div>
       </div>
