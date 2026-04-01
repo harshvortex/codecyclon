@@ -12,23 +12,7 @@ export async function POST(request) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
 
-    // Save lead to a local JSON file
-    const leadsDir = path.join(process.cwd(), 'data');
-    const leadsFile = path.join(leadsDir, 'leads.json');
-
-    // Ensure data directory exists
-    if (!fs.existsSync(leadsDir)) {
-      fs.mkdirSync(leadsDir, { recursive: true });
-    }
-
-    // Read existing leads
-    let leads = [];
-    if (fs.existsSync(leadsFile)) {
-      const raw = fs.readFileSync(leadsFile, 'utf-8');
-      leads = JSON.parse(raw);
-    }
-
-    // Append new lead
+    // Prepare the lead data
     const newLead = {
       id: Date.now(),
       name,
@@ -38,12 +22,13 @@ export async function POST(request) {
       message,
       submittedAt: new Date().toISOString(),
     };
-    leads.push(newLead);
 
-    // Write back to file
-    fs.writeFileSync(leadsFile, JSON.stringify(leads, null, 2));
-
-    console.log('New lead received:', newLead);
+    // NOTE: On Vercel, the file system is read-only. We cannot use fs.writeFileSync.
+    // For now, we will log it to the Vercel console. You can view leads in the Vercel Dashboard -> Logs.
+    // In the future, we should integrate Resend, SendGrid, or a Database (MongoDB/Supabase) here.
+    console.log('--- NEW LEAD RECEIVED ---');
+    console.log(JSON.stringify(newLead, null, 2));
+    console.log('-------------------------');
 
     return NextResponse.json({ success: true, lead: newLead }, { status: 200 });
   } catch (error) {
