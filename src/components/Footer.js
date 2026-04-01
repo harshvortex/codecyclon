@@ -41,7 +41,7 @@ export default function Footer() {
         <div>
           <h4 style={colTitle}>Services</h4>
           <ul style={list}>
-            {['Custom Websites', 'Landing Pages', 'E-commerce', 'Web Platforms', 'SaaS Development'].map(s => (
+            {['Custom Websites', 'App Development', 'Landing Pages', 'E-commerce', 'Marketing & SEO', 'Maintenance'].map(s => (
               <li key={s} style={fLink}>{s}</li>
             ))}
           </ul>

@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 
-const TECH_STACK = ['Next.js', 'React', 'Node.js', 'TypeScript', 'Tailwind', 'Figma', 'Vercel', 'Stripe', 'MongoDB', 'PostgreSQL', 'AWS', 'Docker'];
+const TECH_STACK = ['Next.js', 'React', 'React Native', 'Flutter', 'Node.js', 'TypeScript', 'Tailwind', 'Figma', 'Vercel', 'Stripe', 'Razorpay', 'MongoDB', 'PostgreSQL', 'AWS', 'Docker', 'Google Ads'];
 const CLIENTS = ['Startup Alpha', 'TechCorp', 'GreenLeaf', 'CloudSync', 'Atlas Group', 'Urban Eats', 'LaunchPad', 'FlowState'];
 
 export default function Home() {
@@ -30,13 +30,12 @@ export default function Home() {
           </div>
 
           <h1 className="reveal-element" style={{ marginBottom: '1.5rem' }}>
-            Building Websites<br/>
-            <span style={{ color: 'var(--primary)' }}>That Actually Work</span>
+            Websites. Apps. Growth.<br/>
+            <span style={{ color: 'var(--primary)' }}>We Handle It All.</span>
           </h1>
 
-          <p className="reveal-element" style={{ fontSize: '1.15rem', color: 'var(--text-secondary)', maxWidth: '560px', margin: '0 auto 2.5rem', lineHeight: '1.75' }}>
-            Professional web development for businesses ready to grow online.
-            Clean code, fast performance, real results.
+          <p className="reveal-element" style={{ fontSize: '1.15rem', color: 'var(--text-secondary)', maxWidth: '580px', margin: '0 auto 2.5rem', lineHeight: '1.75' }}>
+            From custom websites and mobile apps to SEO, marketing, and ongoing maintenance — we build, launch, and grow your digital presence.
           </p>
 
           <div className="reveal-element" style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '4rem' }}>
@@ -78,30 +77,31 @@ export default function Home() {
       <section className="section container">
         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
           <div className="badge reveal-element" style={{ marginBottom: '1rem' }}>WHY US</div>
-          <h2 className="reveal-element">We don&apos;t just build websites.<br/><span style={{ color: 'var(--primary)' }}>We engineer growth.</span></h2>
+          <h2 className="reveal-element">We don&apos;t just build products.<br/><span style={{ color: 'var(--primary)' }}>We engineer growth.</span></h2>
         </div>
 
         <div style={bentoGrid}>
           {/* Large Card */}
           <div className="glass card-3d reveal-element" style={{ ...bentoCard, gridColumn: 'span 2', padding: '3rem', position: 'relative', overflow: 'hidden' }}>
             <div className="orb" style={{ top: '-30%', right: '-10%', width: '200px', height: '200px', background: 'var(--primary-glow)' }}></div>
-            <div className="badge" style={{ marginBottom: '1.5rem' }}>PERFORMANCE</div>
-            <h3 style={{ fontSize: '1.8rem', marginBottom: '1rem', maxWidth: '400px' }}>Lightning-fast load times that Google loves</h3>
+            <div className="badge" style={{ marginBottom: '1.5rem' }}>FULL-STACK AGENCY</div>
+            <h3 style={{ fontSize: '1.8rem', marginBottom: '1rem', maxWidth: '450px' }}>Websites, Apps, Marketing & Maintenance — all under one roof</h3>
             <p style={{ color: 'var(--text-secondary)', maxWidth: '450px', lineHeight: '1.7' }}>
-              Our sites consistently score 95+ on Core Web Vitals. We build with Next.js, optimize every asset, and deploy on edge networks for sub-second loads worldwide.
+              We handle the entire lifecycle — from design to development, marketing to maintenance. One team, zero handoff headaches.
             </p>
-            <div style={{ marginTop: '2rem', display: 'flex', gap: '2rem' }}>
+            <div style={{ marginTop: '2rem', display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
               <div><span style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--accent)' }}>95+</span><br/><span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Lighthouse Score</span></div>
               <div><span style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--accent)' }}>&lt;1s</span><br/><span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>First Paint</span></div>
+              <div><span style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--accent)' }}>7+</span><br/><span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Services Offered</span></div>
             </div>
           </div>
 
           {/* Small Cards */}
           {[
-            { icon: '🎨', title: 'Custom Design', desc: 'Pixel-perfect, brand-aligned UI that converts visitors into customers.', color: 'var(--secondary)' },
-            { icon: '📱', title: 'Mobile First', desc: 'Every pixel tested across every viewport. No compromises.', color: 'var(--primary)' },
-            { icon: '⚡', title: 'Rapid Delivery', desc: 'From concept to launch in weeks, not months. Agile sprints.', color: 'var(--accent)' },
-            { icon: '🔒', title: 'Secure & Scalable', desc: 'Enterprise-grade security. Built to handle 10x traffic overnight.', color: 'var(--secondary)' },
+            { icon: '📱', title: 'Apps & Websites', desc: 'Web, iOS, Android — we build it all with a single design language.', color: 'var(--primary)' },
+            { icon: '📈', title: 'Marketing & SEO', desc: 'Organic growth, paid ads, social media — data-driven strategies.', color: 'var(--accent)' },
+            { icon: '⚡', title: 'Rapid Delivery', desc: 'From concept to launch in weeks, not months. Agile sprints.', color: 'var(--secondary)' },
+            { icon: '🛠️', title: 'Ongoing Maintenance', desc: 'Updates, monitoring, bug fixes, and performance tuning 24/7.', color: 'var(--primary)' },
           ].map((f, i) => (
             <div key={i} className="glass card-3d reveal-element" style={bentoCard}>
               <div style={{ ...iconBox, background: `${f.color}15`, color: f.color }}>{f.icon}</div>

@@ -4,17 +4,20 @@ import Link from 'next/link';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 const services = [
-  { icon: '🌐', title: 'Custom Websites', desc: 'Bespoke, hand-crafted websites built from scratch. Every pixel is intentional, every interaction is smooth, every page converts.', features: ['Responsive Design', 'SEO Optimized', 'CMS Integration', 'Analytics'], color: 'var(--primary)' },
-  { icon: '📄', title: 'Landing Pages', desc: 'High-converting landing pages engineered for maximum lead generation and campaign ROI. A/B tested and conversion-optimized.', features: ['A/B Testing Ready', 'Lead Capture', 'Fast Load', 'Analytics'], color: 'var(--secondary)' },
-  { icon: '🛒', title: 'E-commerce', desc: 'Powerful online stores with seamless checkout flows, inventory systems, payment gateways, and subscription management.', features: ['Payment Integration', 'Inventory Mgmt', 'Subscription Billing', 'Admin Dashboard'], color: 'var(--accent)' },
-  { icon: '⚙️', title: 'Web Platforms', desc: 'Complex SaaS applications and internal tools built with scalable architecture, real-time features, and robust APIs.', features: ['Real-time Features', 'API Development', 'User Auth', 'Cloud Deploy'], color: 'var(--primary)' },
+  { icon: '🌐', title: 'Custom Websites', desc: 'Bespoke, hand-crafted websites built from scratch. Every pixel is intentional, every interaction is smooth, every page converts visitors into customers.', features: ['Responsive Design', 'SEO Optimized', 'CMS Integration', 'Analytics Dashboard'], color: 'var(--primary)' },
+  { icon: '📱', title: 'App Development', desc: 'Native and cross-platform mobile apps for iOS and Android. From MVPs to full-scale products — smooth UX, fast performance, and reliable backends.', features: ['iOS & Android', 'Cross-Platform (Flutter/RN)', 'Backend & APIs', 'App Store Publishing'], color: 'var(--secondary)' },
+  { icon: '📄', title: 'Landing Pages', desc: 'High-converting landing pages engineered for maximum lead generation and campaign ROI. A/B tested and conversion-optimized from day one.', features: ['A/B Testing Ready', 'Lead Capture Forms', 'Blazing Fast', 'Conversion Tracking'], color: 'var(--accent)' },
+  { icon: '🛒', title: 'E-commerce', desc: 'Powerful online stores with seamless checkout flows, inventory systems, payment gateways, and subscription management built for scale.', features: ['Payment Integration', 'Inventory Mgmt', 'Subscription Billing', 'Admin Dashboard'], color: 'var(--primary)' },
+  { icon: '⚙️', title: 'Web Platforms & SaaS', desc: 'Complex SaaS applications and internal tools built with scalable architecture, real-time features, robust APIs, and enterprise-grade security.', features: ['Real-time Features', 'API Development', 'User Auth & Roles', 'Cloud Deployment'], color: 'var(--secondary)' },
+  { icon: '📈', title: 'Marketing & SEO', desc: 'Data-driven digital marketing strategies. We handle your SEO, social media, content marketing, and paid campaigns to drive organic growth.', features: ['On-Page & Off-Page SEO', 'Social Media Mgmt', 'Google Ads & Meta Ads', 'Content Strategy'], color: 'var(--accent)' },
+  { icon: '🛠️', title: 'Maintenance & Support', desc: 'Keep your digital products running smoothly. Bug fixes, performance tuning, security patches, content updates, and 24/7 monitoring — we handle it all.', features: ['Bug Fixes & Updates', 'Performance Tuning', 'Security Patches', 'Uptime Monitoring'], color: 'var(--primary)' },
 ];
 
 const process = [
-  { num: '01', title: 'Discovery Call', desc: 'We learn everything about your business, goals, and target audience.', duration: '1-2 days' },
-  { num: '02', title: 'Strategy & Design', desc: 'We create wireframes, mockups, and an interactive prototype for your review.', duration: '3-5 days' },
-  { num: '03', title: 'Development Sprint', desc: 'We build with clean, performant, well-documented code. Weekly demos included.', duration: '1-4 weeks' },
-  { num: '04', title: 'Launch & Optimize', desc: 'We deploy, monitor Core Web Vitals, and provide ongoing maintenance.', duration: 'Ongoing' },
+  { num: '01', title: 'Discovery Call', desc: 'We learn everything about your business, goals, audience, and competitors. No fluff — just strategy.', duration: '1-2 days' },
+  { num: '02', title: 'Strategy & Design', desc: 'We create wireframes, mockups, and an interactive prototype. You see it and approve it before a single line of code.', duration: '3-7 days' },
+  { num: '03', title: 'Development Sprint', desc: 'We build with clean, performant, well-documented code. Weekly demos so you see progress every step.', duration: '1-6 weeks' },
+  { num: '04', title: 'Launch & Scale', desc: 'We deploy, monitor Core Web Vitals, set up analytics, and provide ongoing maintenance and marketing support.', duration: 'Ongoing' },
 ];
 
 export default function ServicesPage() {
@@ -28,31 +31,29 @@ export default function ServicesPage() {
         <div className="dot-pattern"></div>
         <div className="container" style={{ textAlign: 'center', position: 'relative', zIndex: 1 }}>
           <div className="badge reveal-element" style={{ marginBottom: '1rem' }}>WHAT WE DO</div>
-          <h1 className="reveal-element" style={{ marginBottom: '1rem' }}>Services built for <span style={{ color: 'var(--primary)' }}>results</span></h1>
-          <p className="reveal-element" style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', maxWidth: '550px', margin: '0 auto' }}>
-            Everything you need to build, launch, and scale your online presence.
+          <h1 className="reveal-element" style={{ marginBottom: '1rem' }}>Build. Launch. <span style={{ color: 'var(--primary)' }}>Grow.</span></h1>
+          <p className="reveal-element" style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', maxWidth: '600px', margin: '0 auto' }}>
+            From websites and apps to marketing and maintenance — everything you need to dominate your digital presence.
           </p>
         </div>
       </section>
 
-      {/* Services Detail Cards */}
+      {/* Services Grid */}
       <section className="container" style={{ paddingBottom: '5rem' }}>
-        <div style={{ display: 'grid', gap: '1.5rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '1.5rem' }}>
           {services.map((s, i) => (
-            <div key={i} className="glass card-3d reveal-element" style={{ padding: '2.5rem', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', alignItems: 'center' }}>
-              <div>
-                <div style={{ fontSize: '2rem', marginBottom: '1rem' }}>{s.icon}</div>
-                <h3 style={{ fontSize: '1.6rem', marginBottom: '0.75rem' }}>{s.title}</h3>
-                <p style={{ color: 'var(--text-secondary)', lineHeight: '1.7', marginBottom: '1.5rem' }}>{s.desc}</p>
-                <Link href="/contact" className="btn-ghost" style={{ fontWeight: 600, fontSize: '0.9rem' }}>Get a Quote →</Link>
-              </div>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' }}>
+            <div key={i} className="glass card-3d reveal-element" style={{ padding: '2.5rem 2rem', cursor: 'default', display: 'flex', flexDirection: 'column' }}>
+              <div style={{ ...iconBox, background: `${s.color}15`, color: s.color }}>{s.icon}</div>
+              <h3 style={{ fontSize: '1.3rem', marginBottom: '0.75rem' }}>{s.title}</h3>
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: '1.7', marginBottom: '1.5rem', flex: 1 }}>{s.desc}</p>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem', marginBottom: '1.5rem' }}>
                 {s.features.map((f, j) => (
-                  <div key={j} style={{ background: 'var(--surface-2)', padding: '0.8rem 1rem', borderRadius: 'var(--radius-md)', fontSize: '0.85rem', color: 'var(--text-secondary)', border: '1px solid var(--border)' }}>
-                    <span style={{ color: s.color, marginRight: '0.4rem' }}>✓</span> {f}
+                  <div key={j} style={{ background: 'var(--surface-2)', padding: '0.5rem 0.75rem', borderRadius: 'var(--radius-sm)', fontSize: '0.78rem', color: 'var(--text-secondary)', border: '1px solid var(--border)' }}>
+                    <span style={{ color: s.color, marginRight: '0.3rem' }}>✓</span> {f}
                   </div>
                 ))}
               </div>
+              <Link href="/contact" style={{ color: 'var(--primary)', fontWeight: 600, fontSize: '0.9rem' }}>Get a Quote →</Link>
             </div>
           ))}
         </div>
@@ -68,8 +69,8 @@ export default function ServicesPage() {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.5rem' }}>
             {process.map((p, i) => (
-              <div key={i} className="reveal-element" style={{ padding: '2rem', background: 'var(--surface-1)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border)', position: 'relative' }}>
-                <span style={{ fontFamily: 'var(--mono)', fontSize: '2rem', fontWeight: 800, color: 'var(--primary)', opacity: 0.15 }}>{p.num}</span>
+              <div key={i} className="reveal-element" style={{ padding: '2rem', background: 'var(--surface-1)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border)' }}>
+                <span style={{ fontFamily: 'var(--mono)', fontSize: '2.5rem', fontWeight: 800, color: 'var(--primary)', opacity: 0.15 }}>{p.num}</span>
                 <h3 style={{ margin: '1rem 0 0.5rem' }}>{p.title}</h3>
                 <p style={{ color: 'var(--text-secondary)', fontSize: '0.88rem', lineHeight: '1.7', marginBottom: '1rem' }}>{p.desc}</p>
                 <span className="badge" style={{ fontSize: '0.7rem' }}>{p.duration}</span>
@@ -93,3 +94,9 @@ export default function ServicesPage() {
     </div>
   );
 }
+
+const iconBox = {
+  width: '48px', height: '48px', borderRadius: 'var(--radius-md)',
+  display: 'flex', alignItems: 'center', justifyContent: 'center',
+  fontSize: '1.4rem', marginBottom: '1.25rem',
+};
