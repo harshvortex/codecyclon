@@ -188,7 +188,7 @@
   /* Mobile Optimizations */
   @media (max-width: 768px) {
     .glass-card {
-      backdrop-blur-lg; /* Reduce blur on mobile for performance */
+      @apply backdrop-blur-lg; /* Reduce blur on mobile for performance */
     }
     
     .bg-grid {
