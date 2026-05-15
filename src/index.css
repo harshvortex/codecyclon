@@ -76,7 +76,7 @@
   }
 
   * {
-    @apply border-[var(--border-color)] transition-colors duration-300;
+    @apply border-[var(--border-color)] transition-colors duration-200;
   }
 
   /* Custom Scrollbar for Expert Finish */
@@ -98,6 +98,11 @@
 
   body {
     @apply bg-background text-foreground font-sans overflow-x-hidden selection:bg-[var(--selection-bg)] selection:text-foreground;
+    line-height: 1.7;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    letter-spacing: -0.02em;
   }
 
   /* Grain Texture for Architectural Feel */

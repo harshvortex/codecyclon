@@ -44,28 +44,28 @@ const SERVICES = [
     title: "Digital Solution Systems",
     description: "We don't just build apps; we architect end-to-end digital systems that solve core business friction. From custom ERPs to high-velocity consumer platforms, we engineer the backbone of your digital operation.",
     tags: ["Systems Architecture", "Full-Stack", "Scalability"],
-    color: "from-blue-500/20 to-cyan-500/20"
+    color: "from-primary/20 to-accent/20"
   },
   {
     icon: <Bot className="w-6 h-6" />,
     title: "Strategic Consultancy",
     description: "Navigate the complex landscape of AI and modern engineering with senior-level strategic guidance. We audit your current stack and design 12-24 month digital roadmaps to ensure your technology is an asset, not a liability.",
     tags: ["Tech Audit", "AI Roadmap", "Digital Strategy"],
-    color: "from-orange-500/20 to-red-500/20"
+    color: "from-accent/20 to-primary/20"
   },
   {
     icon: <Cpu className="w-6 h-6" />,
     title: "Neural Integrations",
     description: "Shift from manual oversight to automated intelligence by embedding custom neural cores into your systems. We build autonomous agents that execute high-level strategy while maintaining technical agility.",
     tags: ["LLM Ops", "Custom RAG", "Workflow Automation"],
-    color: "from-purple-500/20 to-pink-500/20"
+    color: "from-primary/20 to-accent/20"
   },
   {
     icon: <ShieldCheck className="w-6 h-6" />,
     title: "Digital Fortification",
     description: "Protect your intellectual property with rigorous audits and zero-trust architectural principles. We harden your digital systems against modern vulnerabilities before they become catastrophic failures.",
     tags: ["Cyber Audits", "Zero-Trust", "Security Engineering"],
-    color: "from-emerald-500/20 to-teal-500/20"
+    color: "from-accent/20 to-primary/20"
   }
 ];
 
@@ -73,42 +73,42 @@ const PROJECTS = [
   {
     title: "Cyber-Copilot",
     category: "Security System",
-    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800",
+    code: "CYB-01",
     description: "An advanced security intelligence system leveraging LLMs to detect vulnerabilities and automate threat response.",
     link: "https://github.com/harshvortex/Cyber-copilot"
   },
   {
     title: "Quiz AI Engine",
     category: "EdTech Solution",
-    image: "https://images.unsplash.com/photo-1610484826967-09c5720778c7?auto=format&fit=crop&q=80&w=800",
+    code: "EDU-02",
     description: "A comprehensive assessment system that automates content generation and evaluation for enterprise learning.",
     link: "https://github.com/harshvortex/quiz-ai-platform"
   },
   {
     title: "VoiceSense Core",
     category: "Neural Audio System",
-    image: "https://images.unsplash.com/photo-1589254065878-42c9da997008?auto=format&fit=crop&q=80&w=800",
+    code: "VSC-03",
     description: "A high-precision vocal data processing system designed for sentiment analysis and real-time transcription.",
     link: "https://github.com/harshvortex/voicesense"
   },
   {
     title: "Nexus ERP",
     category: "Enterprise System",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
+    code: "NEX-04",
     description: "A next-generation resource planning system with real-time supply chain intelligence and predictive analytics.",
     link: "#"
   },
   {
     title: "Aura Health",
     category: "Digital Health Core",
-    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=800",
+    code: "AUR-05",
     description: "A secure, HIPAA-compliant patient management system integrated with custom neural diagnostic tools.",
     link: "#"
   },
   {
     title: "Titan Ledger",
     category: "Fintech Solution",
-    image: "https://images.unsplash.com/photo-1621416894569-0f39ed31d247?auto=format&fit=crop&q=80&w=800",
+    code: "TIT-06",
     description: "A high-frequency distributed ledger system architected for ultra-low latency transaction processing.",
     link: "#"
   }
@@ -405,11 +405,7 @@ export default function App() {
           style={{ y: useTransform(scrollY, [0, 500], [0, 100]) }}
           className="absolute right-[-10%] top-1/2 -translate-y-1/2 w-2/3 h-full opacity-[0.03] dark:opacity-[0.07] pointer-events-none hidden lg:block"
         >
-          <img 
-            src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1200" 
-            className="w-full h-full object-contain mix-blend-screen" 
-            alt="Kinetic interaction" 
-          />
+          <div className="w-full h-full border-[40px] border-primary rounded-full mix-blend-overlay filter blur-[100px]" />
         </motion.div>
       </section>
 
@@ -558,14 +554,12 @@ export default function App() {
               transition={{ delay: i * 0.1, duration: 0.8 }}
               className="group"
             >
-              <div className="overflow-hidden rounded-[2.5rem] mb-10 aspect-[4/3] relative border border-border bg-foreground/[0.02] shadow-xl transition-all duration-500 group-hover:shadow-2xl">
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
-                  className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000 group-hover:scale-110" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                <div className="absolute bottom-6 left-6 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-700 opacity-0 group-hover:opacity-100">
+              <div className="overflow-hidden rounded-[2.5rem] mb-10 aspect-[4/3] relative border border-border bg-gradient-to-br from-background via-foreground/[0.02] to-primary/5 shadow-xl transition-all duration-500 group-hover:shadow-2xl flex items-center justify-center">
+                <div className="absolute inset-0 bg-grid opacity-20 pointer-events-none" />
+                <div className="text-4xl font-mono font-black text-foreground/10 group-hover:text-primary/20 transition-colors duration-500 z-10">{project.code}</div>
+                
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-20" />
+                <div className="absolute bottom-6 left-6 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-700 opacity-0 group-hover:opacity-100 z-30">
                   <Badge className="bg-primary text-background uppercase tracking-widest text-[9px] px-3 py-1 shadow-xl">
                     {project.category}
                   </Badge>
@@ -598,9 +592,9 @@ export default function App() {
               </p>
               <div className="flex items-center gap-6">
                 <div className="flex -space-x-4">
-                  {[1, 2, 3, 4].map(i => (
-                    <div key={i} className="w-14 h-14 rounded-full border-4 border-background bg-foreground/[0.05] shadow-lg flex items-center justify-center overflow-hidden">
-                      <img src={`https://i.pravatar.cc/100?img=${i+10}`} alt="Founder" className="w-full h-full object-cover grayscale" />
+                  {['JD', 'AM', 'RK', 'SL'].map((initials, i) => (
+                    <div key={i} className="w-14 h-14 rounded-full border-4 border-background bg-foreground/[0.05] shadow-lg flex items-center justify-center overflow-hidden relative group cursor-pointer">
+                       <span className="text-sm font-bold text-foreground/60 group-hover:text-primary transition-colors">{initials}</span>
                     </div>
                   ))}
                 </div>
