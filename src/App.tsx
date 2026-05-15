@@ -353,7 +353,7 @@ export default function App() {
               The Architectural Standard
             </motion.div>
             
-            <h1 className="text-[clamp(3.5rem,10vw,10rem)] font-sans font-black leading-[0.8] tracking-tighter mb-12 uppercase text-gradient">
+            <h1 className="text-[clamp(2.5rem,8vw,8rem)] md:text-[clamp(4rem,10vw,10rem)] font-sans font-black leading-[1] md:leading-[0.8] tracking-tighter mb-8 md:mb-12 uppercase text-gradient">
               Architecting <br />
               <span className="text-primary drop-shadow-[0_0_15px_rgba(14,165,233,0.3)]">Digital Systems.</span>
             </h1>
@@ -362,14 +362,19 @@ export default function App() {
               Codecyclon engineers high-integrity digital systems and strategic roadmaps for enterprises that demand <span className="text-foreground font-medium">architectural excellence</span> and <span className="text-foreground font-medium">strategic foresight</span>.
             </p>
 
-            <div className="flex flex-wrap gap-8 items-center">
+            <div className="flex flex-wrap gap-6 items-center">
               <a href="#contact">
-                <Button className="h-16 px-10 bg-primary text-background hover:scale-105 transition-all rounded-2xl font-bold uppercase tracking-widest text-[11px] flex items-center gap-3 btn-sweep shadow-xl shadow-primary/20">
-                   Initiate Strategy <ArrowRight size={18} />
+                <Button className="h-14 md:h-16 px-8 md:px-10 bg-primary text-background hover:scale-105 transition-all rounded-2xl font-bold uppercase tracking-widest text-[11px] flex items-center gap-3 btn-sweep shadow-xl shadow-primary/20 dark:shadow-[0_4px_20px_rgba(56,189,248,0.25)]">
+                   Get a Free Quote <ArrowRight size={18} />
                 </Button>
               </a>
+              <a href="#work">
+                 <Button variant="outline" className="h-14 md:h-16 px-8 md:px-10 border-border text-foreground hover:bg-foreground/[0.02] dark:hover:bg-foreground/[0.05] transition-all rounded-2xl font-bold uppercase tracking-widest text-[11px] flex items-center gap-3">
+                   View Masterworks
+                 </Button>
+              </a>
               
-              <div className="flex items-center gap-12 pl-8 border-l border-border">
+              <div className="flex items-center gap-8 md:gap-12 pl-4 md:pl-8 border-l border-border mt-4 md:mt-0">
                 <div>
                   <motion.div 
                     initial={{ opacity: 0 }}
@@ -477,19 +482,57 @@ export default function App() {
 
       {/* Feature Strip */}
       <section className="py-24 border-y border-border bg-foreground/[0.01]">
-        <div className="px-6 md:px-10 max-w-[1400px] mx-auto flex flex-wrap justify-center lg:justify-between gap-12">
+        <div className="px-6 md:px-10 max-w-[1400px] mx-auto flex flex-wrap justify-center lg:justify-between gap-6 md:gap-12">
           {[
             { icon: <ShieldCheck />, text: "ISO 27001 Certified" },
             { icon: <Zap />, text: "Real-time Latency Ops" },
             { icon: <Layers />, text: "Infinite Scalability" },
             { icon: <Rocket />, text: "Green Code Verified" }
           ].map((feat, i) => (
-            <div key={i} className="flex items-center gap-6 group">
-              <div className="w-16 h-16 rounded-full border border-border flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-background transition-all duration-700 shadow-sm">
+            <div key={i} className="flex items-center gap-4 md:gap-6 group bg-background dark:bg-card-bg px-6 py-3 rounded-full border border-border shadow-sm">
+              <div className="w-12 h-12 md:w-16 md:h-16 rounded-full border border-border flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-background transition-all duration-700 shadow-sm">
                 {feat.icon}
               </div>
-              <span className="text-[11px] uppercase font-bold tracking-[0.2em] text-foreground/40 group-hover:text-foreground transition-colors">{feat.text}</span>
+              <span className="text-[10px] md:text-[11px] uppercase font-bold tracking-[0.2em] text-foreground/60 group-hover:text-foreground transition-colors">{feat.text}</span>
             </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Process Section */}
+      <section id="process" className="py-40 px-6 md:px-10 max-w-[1400px] mx-auto border-b border-border">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-24"
+        >
+          <p className="text-primary font-bold uppercase tracking-[0.4em] text-[10px] mb-6">Methodology</p>
+          <h2 className="text-[clamp(2.5rem,5vw,6rem)] font-sans font-black leading-tight mb-8 uppercase tracking-tighter">
+            How we <br /><span className="text-primary">Work.</span>
+          </h2>
+        </motion.div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+          {[
+            { step: "01", title: "Discovery", desc: "Technical audit & strategy" },
+            { step: "02", title: "Design", desc: "Architecture & UI/UX" },
+            { step: "03", title: "Build", desc: "Engineering & integration" },
+            { step: "04", title: "Launch", desc: "Deployment & QA" },
+            { step: "05", title: "Support", desc: "Scaling & maintenance" }
+          ].map((item, i) => (
+            <motion.div 
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="glass-card p-8 text-center group relative overflow-hidden flex flex-col items-center justify-center min-h-[240px]"
+            >
+              <div className="text-5xl font-black text-primary/10 mb-6 group-hover:text-primary transition-colors duration-500 absolute top-4 right-6">{item.step}</div>
+              <h3 className="text-xl font-bold mb-3 text-foreground uppercase tracking-wider mt-4">{item.title}</h3>
+              <p className="text-sm text-foreground/50">{item.desc}</p>
+            </motion.div>
           ))}
         </div>
       </section>
@@ -629,7 +672,7 @@ export default function App() {
                 Initiate <br /><span className="text-primary">Sequence.</span>
               </h2>
               <p className="text-xl text-foreground/40 font-light leading-relaxed mb-16 max-w-md tracking-tight">
-                Ready to architect the digital future? Our team responds within <span className="text-foreground/80 font-medium">12 standard business hours</span>.
+                Ready to architect the digital future? We reply within <span className="text-foreground/80 font-medium">24 hours</span>.
               </p>
               
               <div className="space-y-12">
@@ -686,9 +729,12 @@ export default function App() {
                 className="bg-transparent border-b border-border py-6 px-4 text-2xl font-light focus:outline-none focus:border-primary transition-colors resize-none text-foreground placeholder:text-foreground/20"
               />
             </div>
-            <Button className="w-full h-24 bg-primary text-background font-bold uppercase tracking-[0.4em] text-sm hover:scale-[1.02] transition-all rounded-3xl flex items-center gap-6 justify-center btn-sweep shadow-2xl shadow-primary/30">
+            <Button className="w-full h-24 bg-primary text-background font-bold uppercase tracking-[0.4em] text-sm hover:scale-[1.02] transition-all rounded-3xl flex items-center gap-6 justify-center btn-sweep shadow-xl shadow-primary/20 dark:shadow-[0_4px_20px_rgba(56,189,248,0.25)]">
               Send Message <Rocket size={24} />
             </Button>
+            <p className="text-center text-[10px] uppercase tracking-widest text-foreground/40 mt-6 flex items-center justify-center gap-2">
+              <ShieldCheck size={14} /> No spam. No sharing.
+            </p>
           </motion.form>
         </div>
       </section>
@@ -773,18 +819,33 @@ export default function App() {
         )}
       </AnimatePresence>
       
-      {/* Floating AI Bubble */}
-      <motion.button 
-        onClick={() => setIsBotOpen(!isBotOpen)}
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        whileHover={{ scale: 1.05, y: -8 }}
-        whileTap={{ scale: 0.95 }}
-        className="fixed bottom-10 right-10 w-20 h-20 bg-primary text-background rounded-full z-[100] shadow-[0_20px_50px_rgba(14,165,233,0.4)] flex items-center justify-center overflow-hidden group"
-      >
-        <div className="absolute inset-0 bg-gradient-to-tr from-white/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-        {isBotOpen ? <X size={32} className="relative z-10" /> : <Bot size={32} className="relative z-10" />}
-      </motion.button>
+      {/* Floating Buttons */}
+      <div className="fixed bottom-10 right-6 md:right-10 flex flex-col gap-4 z-[100]">
+        <motion.a 
+          href="https://wa.me/1234567890"
+          target="_blank"
+          rel="noopener noreferrer"
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          whileHover={{ scale: 1.05, y: -4 }}
+          whileTap={{ scale: 0.95 }}
+          className="w-16 h-16 md:w-20 md:h-20 bg-[#25D366] text-white rounded-full shadow-[0_10px_30px_rgba(37,211,102,0.4)] flex items-center justify-center group relative border border-white/20"
+        >
+          <svg className="w-8 h-8 md:w-10 md:h-10 relative z-10" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.347-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.876 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        </motion.a>
+        
+        <motion.button 
+          onClick={() => setIsBotOpen(!isBotOpen)}
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          whileHover={{ scale: 1.05, y: -4 }}
+          whileTap={{ scale: 0.95 }}
+          className="w-16 h-16 md:w-20 md:h-20 bg-primary text-background rounded-full shadow-[0_20px_50px_rgba(14,165,233,0.4)] flex items-center justify-center overflow-hidden group"
+        >
+          <div className="absolute inset-0 bg-gradient-to-tr from-white/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+          {isBotOpen ? <X size={28} className="relative z-10 md:w-8 md:h-8" /> : <Bot size={28} className="relative z-10 md:w-8 md:h-8" />}
+        </motion.button>
+      </div>
     </div>
   );
 }
